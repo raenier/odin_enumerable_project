@@ -58,6 +58,13 @@ module Enumerable
     end
     return transformed_array
   end
+
+  def my_inject(initial_value)
+    self.my_each do |element|
+      initial_value = yield(element, initial_value)
+    end
+    return initial_value
+  end
 end
 
 # You will first have to define my_each
