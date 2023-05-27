@@ -8,6 +8,15 @@ module Enumerable
     end
     return self
   end
+
+  def my_select
+    filtered = []
+    self.my_each do |element|
+      passed_filter = yield(element)
+      filtered << element if passed_filter
+    end
+    return filtered
+  end
 end
 
 # You will first have to define my_each
