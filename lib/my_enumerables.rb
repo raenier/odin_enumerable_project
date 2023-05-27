@@ -17,6 +17,14 @@ module Enumerable
     end
     return filtered
   end
+
+  def my_all?
+    results = []
+    self.my_each do |element|
+      results << yield(element)
+    end
+    results.uniq == [true]
+  end
 end
 
 # You will first have to define my_each
