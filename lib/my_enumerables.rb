@@ -25,6 +25,22 @@ module Enumerable
     end
     results.uniq == [true]
   end
+
+  def my_any?
+    results = []
+    self.my_each do |element|
+      results << yield(element)
+    end
+    results.include? true
+  end
+
+  def my_none?
+    results = []
+    self.my_each do |element|
+      results << yield(element)
+    end
+    !results.include? true
+  end
 end
 
 # You will first have to define my_each
